@@ -5,13 +5,13 @@ def add_expense():
     expenses.append({"description": description,"amount": amount})
     print("Depense ajoutee !")
     pass
-def show_expenses():
+def show_average():
     if not expenses:
-        print("Aucune depense enregistree.")
+        print("No expenses to calculate average.")
         return
-    for number, expense in enumerate(expenses, start=1):
-        print(f"{number}. {expense['description']} - "
-f"{expense['amount']:.2f}")
+    total = sum(expense['amount'] for expense in expenses)
+    average = total / len(expenses)
+    print(f"Average expense: {average:.2f}")
         
 def show_total():
     total = sum(item["amount"] for item in expenses)
@@ -35,13 +35,15 @@ def delete_expense():
 
 def main():
     while True:
-        print("\n===== SUIVI DES DEPENSES =====")
-        print("1. Ajouter une depense")
-        print("2. Afficher les depenses")
-        print("3. Afficher le total")
-        print("4. Quitter")
+        print("\n=== EXPENSE TRACKER ===")
+        print("1. Add an expense")
+        print("2. View expenses")
+        print("3. Show total")
+        print("4. Exit")
         print("5. Delete an expense")
-        choice = input("Votre choix : ")
+        print("6. Show average")
+
+        choice = input("Choose an option: ")
         if choice == "1":
             add_expense()
         elif choice == "2":
@@ -49,15 +51,14 @@ def main():
         elif choice == "3":
             show_total()
         elif choice == "4":
-            print("Au revoir !")
+            print("Goodbye!")
             break
         elif choice == "5":
             delete_expense()
+        elif choice == "6":
+            show_average()
         else:
-            print("Choix invalide.")
+            print("Invalid option.")
+
 if __name__ == "__main__":
-<<<<<<< HEAD
     main()
-=======
-    main()
->>>>>>> ab36dac358d76650451c38bf35af304e0d051288
