@@ -56,4 +56,8 @@ def main():
         else:
             print("Choix invalide.")
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> ab36dac358d76650451c38bf35af304e0d051288
