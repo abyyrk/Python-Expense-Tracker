@@ -5,6 +5,13 @@ def add_expense():
     expenses.append({"description": description,"amount": amount})
     print("Depense ajoutee !")
     pass
+def show_expenses():
+    if not expenses:
+        print("Aucune depense enregistree.")
+        return
+    for number, expense in enumerate(expenses, start=1):
+        print(f"{number}. {expense['description']} - "
+f"{expense['amount']:.2f}")
 def show_average():
     if not expenses:
         print("No expenses to calculate average.")
